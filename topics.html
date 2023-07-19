@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+topics
+{% endblock title %}
+
+{% block content %}
+<div class="topicsList">
+    <h1>Choose a topic to take a test in</h1>
+    <hr>
+    {% for obj in topics %}
+        <a class="btn btn-info" href="/topic/{{obj}}" role="button">{{obj}}</a>
+    {% endfor %}
+</div>
+
+{% endblock content %}
