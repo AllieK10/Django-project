@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<div class="answerList">
+<h1>{{tasks.name}}</h1>
+    {% for el in tasks %}
+         <a class="btn btn-outline-warning" href="/{{el.pk}}/data" role="button">{{el.name}}</a>
+    {% endfor %}
+</div>
+{% endblock content %}
