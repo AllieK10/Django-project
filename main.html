@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+<head>
+  {% block title %}
+    home
+  {% endblock title %}
+</head>
+
+<body>
+{% block content %}
+
+<div class="myresults">
+<h1>My results</h1>
+    <hr>
+    <ul>
+        {% for res in results %}
+        <li><h6>{{res.task.topic}} - {{res.task.difficulty}}</h6></li>
+            {{res.task.name}}: {{res.score}}
+            <br>
+            <br>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-success" href="/tasks-chosen" role="button">Click here to start learning</a>
+    <a class="btn btn-info" href="/topics" role="button">Click here to choose new tests</a>
+</div>
+{% endblock content %}
+
+</body>
