@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<h1>{{tasks.name}}</h1>
+{% endblock title %}
+
+{% block content %}
+<form action="/{{tasks.pk}}/save">
+    <div class="answerList">
+    <h2 style="color:#320870">{{tasks.name}}</h2>
+        <hr>
+        {% for question in tasks.get_questions %}
+            <br>
+            <h5>{{question.text}}</h5>
+            {% for el in question.get_answers %}
+                <div class="form-check">
+                <input class="form-check-input" type="radio" style="width:1.1em; height:1.1em; color:#2f0f73; border:0.15em solid color" id="{{el.id}}" name="{{question.id}}" value="{{el.id}}">
+                <label class="form-check-label" for="{{el.id}}">{{el.text}}</label>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <br>
+         <h3>
+         <button type="submit" class="btn btn-success">Check</button>
+         </h3>
+    </div>
+ </form>
+
+{% endblock content %}
