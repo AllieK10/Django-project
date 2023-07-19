@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<h1>{{tasks.name}}</h1>
+{% endblock title %}
+
+{% block content %}
+<body>
+<div class="answerList">
+<h1>RESULTS</h1>
+    {% for q in results %}
+        <p>* {{q.question.text}}</p>
+            {% if q.correct_answer.id == q.answered.id %}
+            <h5 style="background-color:#0b8715;">CORRECT: {{q.answered.text}}</h5>
+            {% else %}
+            <h5 style="background-color:#cf150e;">INCORRECT: {{q.answered.text}}</h5>
+            {% endif %}
+    {% endfor %}
+    <hr>
+    <h3><label>Score: </label>{{score}}</h3>
+</div>
+</body>
+{% endblock content %}
